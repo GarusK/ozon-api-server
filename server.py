@@ -1,11 +1,13 @@
 from flask import Flask
 import os
+from dotenv import load_dotenv
 
+load_dotenv()
 app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return "OK"
+    return {"status": "OK", "message": "Server is running!"}
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", "5000"))
